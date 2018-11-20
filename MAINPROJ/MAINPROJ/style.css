@@ -1,0 +1,51 @@
+body
+{
+    background-color: black;
+  padding:0px;
+  margin:0px;
+}
+.header
+{
+   background-color:black;
+   color:black;
+   text-align:center;
+   top:0px;
+   width:100%;
+   padding:5px;
+}
+form
+{
+width:40%;
+padding:3px;
+align-content: center;
+margin:5px auto;
+}
+.textInput
+{
+margin-top:2px;
+height:28px;
+
+font-size:16px;
+
+width:100%;
+}
+
+.p
+{
+    color: yellow;
+}
+td
+{
+  text-align:right;
+}
+#error_msg
+{
+    width:50%;
+    margin:5px auto;
+    height:30px;
+    border:1px solid #FF0000;
+    background:#FFB9B8;
+   color:#FF0000;
+   text-align:center;
+   padding-top:10px;
+}
