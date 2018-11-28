@@ -4,14 +4,14 @@ session_start();
 $db=mysqli_connect("localhost","root","","music");
 if(isset($_POST['add_btn']))
 {
-    $username=mysql_real_escape_string($_POST['username']);
-    $age=mysql_real_escape_string($_POST['age']);
-      $phone=mysql_real_escape_string($_POST['phone']);
-      $address=mysql_real_escape_string($_POST['address']);
+    $username=($_POST['username']);
+    $age=($_POST['age']);
+    $phone=($_POST['phone']);
+    $address=($_POST['address']);
     
-            $sql="INSERT INTO artist_det(username,age,phone,address) VALUES('$username','$age','$phone','$address')";
-            mysqli_query($db,$sql);  
-     header("location:det.php"); 
+    $sql="INSERT INTO artist_det(username,age,phone,address) VALUES('$username','$age','$phone','$address')";
+    mysqli_query($db,$sql);  
+    header("location:det.php"); 
 }     
 
 ?>

@@ -1,13 +1,11 @@
 body
 {
-    background-color: black;
+  background-image: url(46123c.jpg);
   padding:0px;
   margin:0px;
 }
 .header
 {
-   background-color:black;
-   color:black;
    text-align:center;
    top:0px;
    width:100%;

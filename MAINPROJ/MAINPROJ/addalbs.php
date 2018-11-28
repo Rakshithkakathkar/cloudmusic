@@ -4,14 +4,14 @@ session_start();
 $db=mysqli_connect("localhost","root","","music");
 if(isset($_POST['add_btn']))
 {
-    $id=mysql_real_escape_string($_POST['id']);
-    $username=mysql_real_escape_string($_POST['username']);
-    $album_name=mysql_real_escape_string($_POST['album_name']);
-     $genre=mysql_real_escape_string($_POST['genre']);
-    $year=mysql_real_escape_string($_POST['year']);
+    $id=($_POST['id']);
+    $username=($_POST['username']);
+    $album_name=($_POST['album_name']);
+     $genre=($_POST['genre']);
+    $year=($_POST['year']);
     
     
-            $sql="INSERT INTO album VALUES('$id','','$username','$album_name','$genre','$year')";
+            $sql="INSERT INTO album(username,album_name,genre,year) VALUES('$username','$album_name','$genre','$year')";
             mysqli_query($db,$sql);  
      header("location:det.php"); 
     //  $_SESSION['album_name']=$album_name;
@@ -34,10 +34,7 @@ if(isset($_POST['add_btn']))
 
     <form method="post" action="addalbs.php">
   <table>
-            <tr>
-         <td><a class="p">artist_id : </a></td>
-         <td><input type="varchar" name="id" class="textInput" value="<?= $_SESSION['id'] ?>"></td>
-     </tr>
+          
       <tr>
          <td><a class="p">artist_name : </a></td>
          <td><input type="varchar" name="username" class="textInput" value="<?= $_SESSION['username'] ?>"></td>

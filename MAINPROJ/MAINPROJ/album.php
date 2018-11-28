@@ -1,30 +1,10 @@
-
-<?php
-
-session_start();
-
-
-    $query = "SELECT DISTINCT(A.album_name),A.aid,A.id from album A,artist B where  B.username=A.username AND B.id=".$_SESSION['id'];
-             
-    $search_result = filterTable($query);
-
-// function to connect and execute the query
-function filterTable($query)
-{
-    $connect = mysqli_connect("localhost", "root", "", "music");
-    $filter_Result = mysqli_query($connect, $query);
-    return $filter_Result;
-}
-
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
         <title></title>
         <style>
             body{
-                background: black;
+                background-image: url(46123c.jpg);
             }
             table,tr,th,td
             {
@@ -43,6 +23,26 @@ function filterTable($query)
         </style>
     </head>
     <body>
+<?php
+
+session_start();
+$connect = mysqli_connect("localhost", "root", "", "music");
+if(!$connect){
+    die("Can not connect:".mysqli_error());
+}
+
+
+    $query = "SELECT DISTINCT(A.album_name),A.aid,B.id from album A,artist B where  B.username=A.username AND B.id=".$_SESSION['id'];
+
+    
+             
+    $search_result = mysqli_query($connect, $query);
+?>
+
+
+
+
+    
         
         <form action="album.php" method="post">
             <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
@@ -66,11 +66,12 @@ function filterTable($query)
                     <td><?php echo $row['album_name'];?></td>
                     <?php
                            echo "<td><a href='albums.php?value=".$row['id']."'>songs</a></td>"; ?>
-                  
+                   
                 </tr>
                 <?php endwhile;?>
             </table>
         </form>
         
     </body>
+?>
 </html>

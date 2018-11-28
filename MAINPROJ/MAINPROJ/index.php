@@ -5,10 +5,10 @@
         <title>CrAzY TuNeS- Home</title>
         <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
     </head>
-    <body>
+    <body background=46123c.jpg>
         
     </body>
-    <nav id="navigation">
+    <nav id="navigation" >
                 <ul id="nav">
                     <li><a href="artist.php">Artist</a></li>
                     <li><a class="p">CrAzY TuNeS</a></li>

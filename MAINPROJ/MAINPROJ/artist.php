@@ -57,18 +57,18 @@ if(isset($_POST['login_btn']))
   <table>
      <tr>
          <td><a class="p">Username :</a> </td>
-           <td><input type="varchar" name="username" class="textInput"></td>
+           <td><input type="text" name="username" class="textInput"></td>
      </tr>
       <tr>
           <td><a class="p">Password :</a> </td>
-           <td><input type="varchar" name="password" class="textInput"></td>
+           <td><input type="password" name="password" class="textInput"></td>
      </tr>
       <tr>
            <td></td>
            <td><input type="submit" name="login_btn" class="Log In"></td>
      </tr>
      <tr><td></td><td
-             <h3 ><a href="register.php" class="p">Register</a></h3></td></tr>
+             <h3><a href="register.php" class="p">Register</a></h3></td></tr>
 </table>
 </form>
 </body>

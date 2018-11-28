@@ -4,21 +4,21 @@ session_start();
 $db=mysqli_connect("localhost","root","","music");
 if(isset($_POST['register_btn']))
 {
-    $username=mysql_real_escape_string($_POST['username']);
-    $email=mysql_real_escape_string($_POST['email']);
-      $album_name=mysql_real_escape_string($_POST['album_name']);
-    $password=mysql_real_escape_string($_POST['password']);
-    $password2=mysql_real_escape_string($_POST['password2']);  
+    $username=($_POST['username']);
+    $email=($_POST['email']);
+    //$album_name=($_POST['album_name']);
+    $password=($_POST['password']);
+    $password2=($_POST['password2']);  
   
      if($password==$password2)
      {           //Create User
             $password=md5($password); //hash password before storing for security purposes
-            $sql="INSERT INTO artist(id,username,email,password) VALUES('','$username','$email','$password')";
+            $sql="INSERT INTO artist (id,username,email,password) VALUES('','$username','$email','$password')";
             mysqli_query($db,$sql);  
             $_SESSION['message']="You are now logged in"; 
         
             $_SESSION['username']=$username;
-            $_SESSION['album_name']=$album_name;
+            //$_SESSION['album_name']=$album_name;
            
             header("location:adddet.php");  //redirect home page
     }
@@ -52,22 +52,22 @@ if(isset($_POST['register_btn']))
   <table>
      <tr>
          <td><a class="p">Username : </a></td>
-           <td><input type="varchar" name="username" class="textInput"></td>
+           <td><input type="text" name="username" class="textInput"></td>
      </tr>
       <tr>
          <td><a class="p">Email : </a> </td>
-           <td><input type="varchar" name="email" class="textInput"></td>
+           <td><input type="email" name="email" class="textInput"></td>
      </tr>
          
     
 
       <tr>
           <td><a class="p">Password : </a></td>
-           <td><input type="varchar" name="password" class="textInput"></td>
+           <td><input type="password" name="password" class="textInput"></td>
      </tr>
       <tr>
           <td><a class="p">Password again: </a></td>
-           <td><input type="varchar" name="password2" class="textInput"></td>
+           <td><input type="password" name="password2" class="textInput"></td>
      </tr>
       
       <tr>
