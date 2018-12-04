@@ -1,11 +1,21 @@
 body
 {
-  background-image: url(46123c.jpg);
+    /*background-color: black;*/
   padding:0px;
   margin:0px;
+  background-image: url(8.jpg);
+}
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
 }
 .header
 {
+   /*background-color:black;*/
+   color:black;
    text-align:center;
    top:0px;
    width:100%;
@@ -16,7 +26,7 @@ form
 width:40%;
 padding:3px;
 align-content: center;
-margin:5px auto;
+margin:15px auto;
 }
 .textInput
 {
@@ -31,6 +41,8 @@ width:100%;
 .p
 {
     color: yellow;
+    font-size: 40px;
+    font-family: monotype corsiva;
 }
 td
 {

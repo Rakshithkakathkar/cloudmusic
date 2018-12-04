@@ -1,14 +1,8 @@
-
 <?php
-
-session_start();
-
-//$album=$_GET['value'];
-
-//SELECT * from songs S,album A,artist B where B.album_name=A.album_name AND B.album_name=S.album_name 
-    $query = "SELECT * from artist B,message M,msg_time T where B.username=M.artist_name AND M.idm=B.id AND B.id=".$_SESSION['id'];
-             
+//"SELECT DISTINCT(A.album_name),A.genre,A.year from songs S,album A where A.album_name=S.album_name 
+     $query = "call albs()";
     $search_result = filterTable($query);
+
 
 // function to connect and execute the query
 function filterTable($query)
@@ -25,7 +19,7 @@ function filterTable($query)
     <head>
         <title></title>
         <style>
-            body{
+             body{
                 background: black;
             }
             table,tr,th,td
@@ -45,31 +39,29 @@ function filterTable($query)
         </style>
     </head>
     <body>
-        
-        <form action="php_html_table_data_filter.php" method="post">
-            <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
-            <h4> <a href="det.php" class="p">back</a></h4>
-           
+          <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+        <div class="u"><td>
+            <a href="user.php" class="p"><h4>back</h4></a></td>
+    </div>
             
-            <table>
+            
+            <table class="p">
                 <tr>
-                   <th>Date</th>
-                    <th>From</th>
-                    <th>Email</th>
-                    
-                    <th>Message</th>
+                    <th>album_name</th>
+                    <th>genre</th>
+                    <th>year of album</th>
+                    <th>songs</th>
+                  
                 </tr>
 
       <!-- populate table from mysql database -->
                 <?php while($row = mysqli_fetch_array($search_result)):?>
                 <tr>
-                    <td><?php echo $row['msg_date'];?></td>
-                    <td><?php echo $row['user_name'];?></td>
-                    <td><?php echo $row['user_email'];?></td>
-                     <td><?php echo $row['msg'];?></td>
-                    
-                    
-                  
+                    <td><?php echo $row['album_name'];?></td>
+                    <td><?php echo $row['genre'];?></td>
+                    <td><?php echo $row['year'];?></td>
+ <?php 
+                              echo "<td><a href='sngs.php?value=".$row['album_name']."'>songs</a></td>"; ?>                  
                 </tr>
                 <?php endwhile;?>
             </table>
@@ -77,3 +69,5 @@ function filterTable($query)
         
     </body>
 </html>
+
+

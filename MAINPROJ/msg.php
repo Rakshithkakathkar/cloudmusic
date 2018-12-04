@@ -10,7 +10,7 @@ if(isset($_POST['btn']))
 $msg=mysql_real_escape_string($_POST['msg']);
 
 
-            $query="insert into message(idm,user_name,user_email,artist_name,msg) values('','$user_name','$user_email','$artist_name','$msg')";
+            $query="insert into message(m_id,user_name,user_email,artist_name,msg) values('','$user_name','$user_email','$artist_name','$msg')";
                 mysqli_query($db,$query);
           
    header("location:msg.php"); 
@@ -25,7 +25,7 @@ $msg=mysql_real_escape_string($_POST['msg']);
 </head>
 <body>
     <div class="header">
-        <h1>   <a href="index.php" class="p">Crazy Tunes</a></h1>
+        <h1>   <a href="index.php" class="p">CrAzY TuNeS</a></h1>
 	</div>
 
 

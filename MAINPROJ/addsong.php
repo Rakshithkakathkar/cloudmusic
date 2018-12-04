@@ -52,7 +52,7 @@ if(in_array($file_ext,$allowed)){
 </head>
 <body>
     <div class="header">
-        <h1>   <a href="index.php" class="p">Crazy Tunes</a></h1>
+        <h1>   <a href="index.php" class="p">Tunes</a></h1>
 	</div>
 <div class="header" >
     <h1><a class="p">add a song</a></h1>
@@ -62,11 +62,11 @@ if(in_array($file_ext,$allowed)){
   <table>
        <tr>
          <td><a class="p">song_title : </a></td>
-           <td><input type="varchar" name="song_title" class="textInput"></td>
+           <td><input type="varchar" name="song_title" class="textInput" required></td>
      </tr>
      <tr>
          <td><a class="p">album_name : </a></td>
-         <td><input type="varchar" name="album_name" value="" class="textInput"></td>
+         <td><input type="varchar" name="album_name" value="" class="textInput" required></td>
      </tr>
         
      <tr>

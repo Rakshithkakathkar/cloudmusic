@@ -22,7 +22,7 @@ if(isset($_POST['add_btn']))
 </head>
 <body>
     <div class="header">
-        <h1>   <a href="index.php" class="p">Crazy Tunes</a></h1>
+        <h1>   <a href="index.php" class="p">Tunes</a></h1>
 	</div>
 <div class="header" >
     <h1><a class="p">add awards</a></h1>
@@ -36,7 +36,7 @@ if(isset($_POST['add_btn']))
      </tr>
          <tr>
          <td><a class="p">awards : </a></td>
-           <td><input type="varchar" name="award_name" class="textInput"></td>
+           <td><input type="varchar" name="award_name" class="textInput" required></td>
      </tr>
      
       

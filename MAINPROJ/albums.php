@@ -1,9 +1,14 @@
+
 <?php
 
-$sid=$_GET['value'];
-    $query = "SELECT * FROM songs S,album A WHERE A.Album_name=S.Album_name AND A.id=".$sid;
-    $search_result = filterTable($query);
+session_start();
 
+$album=$_GET['value'];
+
+//SELECT * from songs S,album A,artist B where B.album_name=A.album_name AND B.album_name=S.album_name 
+    $query = "SELECT * from songs S,album A,artist B where A.album_name=S.album_name AND A.album_name='$album'";
+             
+    $search_result = filterTable($query);
 
 // function to connect and execute the query
 function filterTable($query)
@@ -18,9 +23,9 @@ function filterTable($query)
 <!DOCTYPE html>
 <html>
     <head>
-        <title>PHP HTML TABLE DATA SEARCH</title>
+        <title></title>
         <style>
-             body{
+            body{
                 background: black;
             }
             table,tr,th,td
@@ -41,30 +46,28 @@ function filterTable($query)
     </head>
     <body>
         
-        <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
-          <div class="u"><td>
-                 
-            <a href="albs.php" class="p"><h4>back</h4></a></td>
-    </div>
-              
+        <form action="php_html_table_data_filter.php" method="post">
+            <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+            <h4> <a href="album.php" class="p">back</a></h4>
+            <h2><a href="addsong.php" class="p">add a song</a></h2>
+            
             <table>
                 <tr>
-               
-                    <th>Album_name</th>
-                    <th>Song_title</th>
+                   
+                    <th>album_name</th>
+                    <th>song_title</th>
                     
                     <th>play/download</th>
-                   
                 </tr>
 
       <!-- populate table from mysql database -->
                 <?php while($row = mysqli_fetch_array($search_result)):?>
                 <tr>
-                   
                     <td><?php echo $row['album_name'];?></td>
                     <td><?php echo $row['song_title'];?></td>
                     
-                     <td><a class="p" href='uploaded/<?php echo $row['name'];?>'>play</a></td>
+                    <td><a href='uploaded/<?php echo $row['name'];?>'>play</a></td>
+                  
                 </tr>
                 <?php endwhile;?>
             </table>
@@ -72,5 +75,3 @@ function filterTable($query)
         
     </body>
 </html>
-
-

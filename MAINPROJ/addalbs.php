@@ -4,14 +4,14 @@ session_start();
 $db=mysqli_connect("localhost","root","","music");
 if(isset($_POST['add_btn']))
 {
-    $id=($_POST['id']);
-    $username=($_POST['username']);
-    $album_name=($_POST['album_name']);
-     $genre=($_POST['genre']);
-    $year=($_POST['year']);
+   
+    $username=mysql_real_escape_string($_POST['username']);
+    $album_name=mysql_real_escape_string($_POST['album_name']);
+     $genre=mysql_real_escape_string($_POST['genre']);
+    $year=mysql_real_escape_string($_POST['year']);
     
     
-            $sql="INSERT INTO album(username,album_name,genre,year) VALUES('$username','$album_name','$genre','$year')";
+            $sql="INSERT INTO album VALUES('$username','$album_name','$genre','$year')";
             mysqli_query($db,$sql);  
      header("location:det.php"); 
     //  $_SESSION['album_name']=$album_name;
@@ -26,7 +26,7 @@ if(isset($_POST['add_btn']))
 </head>
 <body>
     <div class="header">
-        <h1>   <a href="index.php" class="p">Crazy Tunes</a></h1>
+        <h1>   <a href="index.php" class="p">Tunes</a></h1>
 	</div>
 <div class="header" >
     <h1><a class="p">Your Album</a></h1>
@@ -34,22 +34,21 @@ if(isset($_POST['add_btn']))
 
     <form method="post" action="addalbs.php">
   <table>
-          
       <tr>
          <td><a class="p">artist_name : </a></td>
          <td><input type="varchar" name="username" class="textInput" value="<?= $_SESSION['username'] ?>"></td>
      </tr>
      <tr>
          <td><a class="p">album_name : </a></td>
-         <td><input type="varchar" name="album_name" class="textInput" value=""></td>
+         <td><input type="varchar" name="album_name" class="textInput" value="" required></td>
      </tr>
          <tr>
          <td><a class="p">genre : </a></td>
-           <td><input type="varchar" name="genre" class="textInput"></td>
+           <td><input type="varchar" name="genre" class="textInput" required></td>
      </tr>
  <tr>
          <td><a class="p">year : </a></td>
-           <td><input type="int" name="year" class="textInput"></td>
+           <td><input type="int" name="year" class="textInput" required></td>
      </tr>     
       
       

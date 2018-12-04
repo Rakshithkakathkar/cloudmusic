@@ -1,8 +1,8 @@
 <?php
 //SELECT * FROM `artist` A,`awards` B where A.username=B.username 
 
-    $query = "call arts()";
-    $search_result = filterTable($query);
+    $query = "SELECT * FROM `artist` A,`awards` B,album c where A.username=B.username AND A.username=C.username ";
+    $search_result = filterTable($query); 
 
 // function to connect and execute the query
 function filterTable($query)
@@ -17,7 +17,7 @@ function filterTable($query)
 <!DOCTYPE html>
 <html>
     <head>
-        <title>PHP HTML TABLE DATA SEARCH</title>
+        <title>SEARCH</title>
         <style>
              body{
                 background: black;
@@ -44,7 +44,7 @@ function filterTable($query)
             <a href="user.php" class="p"><h4>back</h4></a></td>
     </div>
             
-            <table>
+            <table class="p">
                 <tr>
                     <th>Artist_name</th>
                     <th>Email</th>

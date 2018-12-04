@@ -4,14 +4,14 @@ session_start();
 $db=mysqli_connect("localhost","root","","music");
 if(isset($_POST['add_btn']))
 {
-    $username=($_POST['username']);
-    $age=($_POST['age']);
-    $phone=($_POST['phone']);
-    $address=($_POST['address']);
+    $username=mysql_real_escape_string($_POST['username']);
+    $age=mysql_real_escape_string($_POST['age']);
+      $phone=mysql_real_escape_string($_POST['phone']);
+      $address=mysql_real_escape_string($_POST['address']);
     
-    $sql="INSERT INTO artist_det(username,age,phone,address) VALUES('$username','$age','$phone','$address')";
-    mysqli_query($db,$sql);  
-    header("location:det.php"); 
+            $sql="INSERT INTO artist_det(username,age,phone,address) VALUES('$username','$age','$phone','$address')";
+            mysqli_query($db,$sql);  
+     header("location:det.php"); 
 }     
 
 ?>
@@ -23,7 +23,7 @@ if(isset($_POST['add_btn']))
 </head>
 <body>
     <div class="header">
-        <h1>   <a href="index.php" class="p">Crazy Tunes</a></h1>
+        <h1>   <a href="index.php" class="p">Tunes</a></h1>
 	</div>
 <div class="header" >
     <h1><a class="p">add details</a></h1>
@@ -37,15 +37,15 @@ if(isset($_POST['add_btn']))
      </tr>
          <tr>
          <td><a class="p">age : </a></td>
-           <td><input type="vachar" name="age" class="textInput"></td>
+           <td><input type="vachar" name="age" class="textInput" required></td>
      </tr>
      <tr>
          <td><a class="p">phone : </a> </td>
-           <td><input type="int" name="phone" class="textInput"></td>
+           <td><input type="int" name="phone" class="textInput" required></td>
      </tr>
       <tr>
          <td><a class="p">address : </a> </td>
-           <td><input type="varchar" name="address" class="textInput"></td>
+           <td><input type="varchar" name="address" class="textInput" required></td>
      </tr>
       
       

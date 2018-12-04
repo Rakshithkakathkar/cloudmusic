@@ -1,7 +1,8 @@
 body
 {
   font-family: lucida grande ,tahoma,verdana,arial,sans-serif;
-  background-image: url(./46123c.jpg);
+   /* background-color:black;*/
+   background-image: url(7.jpg);
 }
 body p
 {
@@ -76,18 +77,21 @@ body p
 
 #navigation
 {
-    height: 60px;
-    border: 2px solid black;
-    width: 100%;
-    /*text-shadow: 0.1em 0.1em rgba(243, 238, 238,1);*/
+     height: 60px;
+    border: 2px solid transparent black;
+    /*margin-top: 10px;*/
+    text-shadow: 0.1em 0.1em #333;
+    /*background-color: #5f5f5f;*/
+    /*color:#f1f1f1;*/
     
-        
 }
 
 .u{
     text-align: center;
     color: yellow;
-    
+    font-size: 30px;
+    font-family: monotype corsiva;
+    /*background: black;*/
  }
  
  .d{
@@ -98,7 +102,6 @@ body p
 #nav
 {
       list-style: none;
-      width: 100%;
     
 }
 #nav ul
@@ -112,10 +115,10 @@ body p
 #nav li
 {
    font-size: 24px;
-    float: left;
     position: relative;
-    width: 425px;
-    height: 100px;
+    width: 250px;
+    height: 30px;
+    float: left;
 }
 /*
 #nav a:link, nav a:active,nav a:visited
@@ -128,7 +131,7 @@ body p
 #nav a:link, nav a:active,nav a:visited
 {
   transition: 0.3s ease;
-  background: #5f5f5f;
+  /*background: #5f5f5f;*/
   color: #ffffff;
   font-size: 20px;
   text-decoration: none;
@@ -150,6 +153,8 @@ body p
 .p
 {
     color: yellow;
+    font-size: 40px;
+    font-family: monotype corsiva;
 }
 
 .imgLeft
@@ -189,7 +194,7 @@ body p
     margin: 10px 10px 10px 0;
     border: 3px solid #E3E3E3;
     border-radius: 10px;
-    /*moz-border-radius: 10px;*/
+    
 }
 .itemtable tr th, .itemtable tr td
 {
@@ -262,7 +267,7 @@ label
 
 .header
 {
-   background-color: black;
+   /*background-color: black;*/
    color:black;
    text-align:center;
    top:0px;

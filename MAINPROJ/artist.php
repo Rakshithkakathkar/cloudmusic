@@ -20,7 +20,7 @@ if(isset($_POST['login_btn']))
     {
        // $_SESSION['message']="You are now Loggged In";
         $_SESSION['username']=$username;
-        $_SESSION['id']=$id;
+       
         $_SESSION['album_name']=$album_name;
         
         header("location:det.php");
@@ -35,11 +35,11 @@ if(isset($_POST['login_btn']))
 <html>
 <head>
   <title> login and logout </title>
-  <link rel="stylesheet" type="text/css" href="style.css"/>
+  <link rel="stylesheet" type="text/css" href="style.css"/>    
 </head>
-<body>
+<body background="2.jpg">    
         <div class="header">
-            <h1> <a href="index.php" class="p">Crazy Tunes</a></h1>
+            <h1> <a href="index.php" class="p">CrAzY TuNeS</a></h1>
 	</div>
 <div class="header">
  
@@ -57,20 +57,21 @@ if(isset($_POST['login_btn']))
   <table>
      <tr>
          <td><a class="p">Username :</a> </td>
-           <td><input type="text" name="username" class="textInput"></td>
+           <td><input type="varchar" name="username" class="textInput" required></td>
      </tr>
       <tr>
           <td><a class="p">Password :</a> </td>
-           <td><input type="password" name="password" class="textInput"></td>
+           <td><input type="password" name="password" class="textInput" required></td>
      </tr>
       <tr>
            <td></td>
            <td><input type="submit" name="login_btn" class="Log In"></td>
      </tr>
      <tr><td></td><td
-             <h3><a href="register.php" class="p">Register</a></h3></td></tr>
+             <h3 ><a href="register.php" class="p">Register</a></h3></td></tr>
 </table>
 </form>
+
 </body>
 
 </html>

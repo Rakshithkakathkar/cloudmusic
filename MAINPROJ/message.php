@@ -3,10 +3,9 @@
 
 session_start();
 
-$album=$_GET['value'];
-
-//SELECT * from songs S,album A,artist B where B.album_name=A.album_name AND B.album_name=S.album_name 
-    $query = "SELECT * from songs S,album A,artist B where A.album_name=S.album_name AND A.id=".$album;
+//$album=$_GET['value'];
+$user=$_SESSION['username'];
+    $query = "SELECT * from artist B,message M,msg_time T where B.username=M.artist_name AND B.username='$user'";
              
     $search_result = filterTable($query);
 
@@ -48,25 +47,27 @@ function filterTable($query)
         
         <form action="php_html_table_data_filter.php" method="post">
             <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
-            <h4> <a href="album.php" class="p">back</a></h4>
-            <h2><a href="addsong.php" class="p">add a song</a></h2>
+            <h4> <a href="det.php" class="u">back</a></h4>
+           
             
-            <table>
+            <table class="p">
                 <tr>
-                   
-                    <th>album_name</th>
-                    <th>song_title</th>
+                   <th>Date</th>
+                    <th>From</th>
+                    <th>Email</th>
                     
-                    <th>play/download</th>
+                    <th>Message</th>
                 </tr>
 
       <!-- populate table from mysql database -->
                 <?php while($row = mysqli_fetch_array($search_result)):?>
                 <tr>
-                    <td><?php echo $row['album_name'];?></td>
-                    <td><?php echo $row['song_title'];?></td>
+                    <td><?php echo $row['msg_date'];?></td>
+                    <td><?php echo $row['user_name'];?></td>
+                    <td><?php echo $row['user_email'];?></td>
+                     <td><?php echo $row['msg'];?></td>
                     
-                    <td><a href='uploaded/<?php echo $row['name'];?>'>play</a></td>
+                    
                   
                 </tr>
                 <?php endwhile;?>

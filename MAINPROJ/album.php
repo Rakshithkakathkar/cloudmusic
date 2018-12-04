@@ -1,10 +1,30 @@
+
+<?php
+
+session_start();
+
+$user=$_SESSION['username'];
+    $query = "SELECT * FROM album WHERE username='$user'";
+             
+    $search_result = filterTable($query);
+
+// function to connect and execute the query
+function filterTable($query)
+{
+    $connect = mysqli_connect("localhost", "root", "", "music");
+    $filter_Result = mysqli_query($connect, $query);
+    return $filter_Result;
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <title></title>
         <style>
             body{
-                background-image: url(46123c.jpg);
+                background: black;
             }
             table,tr,th,td
             {
@@ -23,26 +43,6 @@
         </style>
     </head>
     <body>
-<?php
-
-session_start();
-$connect = mysqli_connect("localhost", "root", "", "music");
-if(!$connect){
-    die("Can not connect:".mysqli_error());
-}
-
-
-    $query = "SELECT DISTINCT(A.album_name),A.aid,B.id from album A,artist B where  B.username=A.username AND B.id=".$_SESSION['id'];
-
-    
-             
-    $search_result = mysqli_query($connect, $query);
-?>
-
-
-
-
-    
         
         <form action="album.php" method="post">
             <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
@@ -52,7 +52,7 @@ if(!$connect){
                 <h4> <a href="det.php" class="p">back</a></h4></div>
             
             
-            <table>
+            <table class="p">
                 <tr>
                    
                     <th>album_name</th>
@@ -61,17 +61,17 @@ if(!$connect){
                 </tr>
 
       <!-- populate table from mysql database -->
-                <?php while($row = mysqli_fetch_array($search_result)):?>
+                <?php 
+				while($row = mysqli_fetch_array($search_result)):?>
                 <tr>
                     <td><?php echo $row['album_name'];?></td>
                     <?php
-                           echo "<td><a href='albums.php?value=".$row['id']."'>songs</a></td>"; ?>
-                   
+                           echo "<td><a href='albums.php?value=".$row['album_name']."'>songs</a></td>"; ?>
+                  
                 </tr>
                 <?php endwhile;?>
             </table>
         </form>
         
     </body>
-?>
 </html>

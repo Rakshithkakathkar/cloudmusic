@@ -5,7 +5,7 @@
         <title>user page</title>
          <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
     </head>
-    <body background=46123c.jpg>
+    <body>
         <div class="u"><td>
                 <h1><a class="p">ACCOUNT</a></h1></td>
         </div>

@@ -1,5 +1,7 @@
 <?php
-     $query = "SELECT DISTINCT(A.album_name),A.genre,A.year,A.id from songs S,album A,artist B where A.album_name=S.album_name ";
+
+$sid=$_GET['value'];
+    $query = "SELECT * FROM songs S,album A WHERE A.album_name=S.album_name AND A.album_name='$sid'";
     $search_result = filterTable($query);
 
 
@@ -16,7 +18,7 @@ function filterTable($query)
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <title>SEARCH</title>
         <style>
              body{
                 background: black;
@@ -38,29 +40,31 @@ function filterTable($query)
         </style>
     </head>
     <body>
-          <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
-        <div class="u"><td>
-            <a href="user.php" class="p"><h4>back</h4></a></td>
+        
+        <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+          <div class="u"><td>
+                 
+            <a href="albs.php" class="p"><h4>back</h4></a></td>
     </div>
-            
-            
+              
             <table>
                 <tr>
-                    <th>album_name</th>
-                    <th>genre</th>
-                    <th>year of album</th>
-                    <th>songs</th>
-                  
+               
+                    <th>Album_name</th>
+                    <th>Song_title</th>
+                    
+                    <th>play/download</th>
+                   
                 </tr>
 
       <!-- populate table from mysql database -->
                 <?php while($row = mysqli_fetch_array($search_result)):?>
                 <tr>
+                   
                     <td><?php echo $row['album_name'];?></td>
-                    <td><?php echo $row['genre'];?></td>
-                    <td><?php echo $row['year'];?></td>
- <?php 
-                              echo "<td><a href='sngs.php?value=".$row['id']."'>songs</a></td>"; ?>                  
+                    <td><?php echo $row['song_title'];?></td>
+                    
+                     <td><a class="p" href='uploaded/<?php echo $row['name'];?>'>play</a></td>
                 </tr>
                 <?php endwhile;?>
             </table>
